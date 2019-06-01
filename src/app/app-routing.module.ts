@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import {CustomerEntryComponent} from './customer-entry/customer-entry.component';
 
 const routes: Routes = [
-  { path: 'customer-entry', component: CustomerEntryComponent },
+  { path: 'user', component: CustomerEntryComponent },
 
   { path: '',
-  redirectTo: '/customer-entry',
+  redirectTo: '/user',
   pathMatch: 'full'
   }
 ];
