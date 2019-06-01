@@ -53,6 +53,9 @@ export class CustomerEntryComponent implements OnInit {
   }, {
     prop: 'gender',
     title: 'Gender'
+  },{
+    prop: 'date',
+    title: 'DOB'
   }, {
     prop: 'email',
     title: 'Email'
@@ -63,16 +66,15 @@ export class CustomerEntryComponent implements OnInit {
     prop: 'url',
     type: 'url',
     title: 'URL'
-  },{
-    prop: 'date',
-    title: 'DOB'
   }];
   data: any[] = [{
-    name: 'Abuthahir',
-    age: 23,
+    name: 'Rahman AR',
+    age: 26,
     gender: 'Male',
-    address: '2,439234203 42oidshoasd',
-    url: 'http://asdasd.sadoc'
+    email: 'rahman.godisgreat07@gmail.com',
+    date: '04-01-1994',
+    address: 'Madurai',
+    url: 'http://www.rahmanblog.com'
   }];
 
   onDelete(rowIndex) {
@@ -100,10 +102,40 @@ export class CustomerEntryComponent implements OnInit {
   validateEmail(emailField){
     var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
 
-  if(!emailField.match(reEmail)) {
-    alert("Invalid email address");
-    return false;
-  }
+ 
+
+    if( this.entry.name == "" ) {
+            alert( "Please provide your Name!" );
+            return false;
+    }
+
+    if( this.entry.age == "" ) {
+            alert( "Please provide your Age!" );
+            return false;
+    }
+    if( this.entry.gender == "" ) {
+            alert( "Please provide your Gender!" );
+            return false;
+    }
+
+    if(!this.entry.date) {
+            alert( "Please provide your Date of Birth!" );
+            return false;
+    }
+
+    if(!emailField.match(reEmail)) {
+            alert("Invalid email address");
+             return false;
+    }
+    if( this.entry.address == "" ) {
+            alert( "Please provide your Address!" );
+            return false;
+    }
+
+    if( this.entry.url == "" ) {
+            alert( "Please provide your URL!" );
+            return false;
+    }
 
   return true;
 }
