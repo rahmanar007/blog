@@ -1,0 +1,72 @@
+<mat-form-field>
+  <input matInput [(ngModel)]="entry.name" placeholder="Name" >
+</mat-form-field>
+<mat-form-field>
+  <input matInput type="number" [(ngModel)]="entry.age"  placeholder="Age" >
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Gender</mat-label>
+  <mat-select [(ngModel)]="entry.gender">
+    <mat-option value="Male">
+      Male
+    </mat-option>
+    <mat-option value="Female">
+      Female
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <input matInput [(ngModel)]="entry.date" [matDatepicker]="picker" placeholder="DOB">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <input matInput type="email" [(ngModel)]="entry.email" placeholder="Email">
+</mat-form-field>
+<mat-form-field>
+  <textarea matInput [(ngModel)]="entry.address" placeholder="Address"></textarea>
+</mat-form-field>
+<mat-form-field>
+  <input matInput [(ngModel)]="entry.url" placeholder="URL">
+</mat-form-field>
+
+<button mat-raised-button (click)="onAdd()">Save</button>
+
+
+<table width="100%">
+  <tr class="title">
+    <th>
+      S.NO
+    </th>
+    <ng-container *ngFor="let col of columns;let colIndex=index">
+      <th>
+        {{col.title}}
+      </th>
+    </ng-container>
+    <th>
+      Action
+    </th>
+  </tr>
+  <ng-container *ngFor="let li of data;let rowIndex=index">
+    <tr class="{{(rowIndex%2==0)?'even':'odd'}}">
+      <th>
+        {{rowIndex+1}}
+      </th>
+      <ng-container *ngFor="let col of columns;let colIndex=index">
+        <th>
+          <ng-container *ngIf="col.type=='url'">
+            <a href="{{li[col.prop]}}"> {{li[col.prop]}}</a>
+          </ng-container>
+          <ng-container *ngIf="col.type!='url'">
+            {{li[col.prop]}}
+          </ng-container>
+        </th>
+      </ng-container>
+      <th>
+        <button class="edit" (click)="onEdit(rowIndex)">Edit</button>
+        <button class="delete" (click)="onDelete(rowIndex)">Delete</button>
+      </th>
+    </tr>
+
+  </ng-container>
+</table>

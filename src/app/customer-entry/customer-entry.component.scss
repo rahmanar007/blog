@@ -1,0 +1,60 @@
+.form-layoyt-wrapper{
+    background: rgba(0,0,0,.14);
+    padding: 10px;
+    height: 100%;
+    .form-layout{
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px;
+        background: white;
+        padding: 15px;
+
+        .Date{
+            font-size: 25px;
+            text-align: center;
+        }
+        .Time{
+            font-size: 25px;
+            text-align: center;
+        }
+    }
+}
+
+table {
+    tr.title {
+        th {
+            padding: 7px;
+        }
+        background: #317fad;
+            color: white;
+        
+    }
+    tr {
+        &.even {
+            background:#def3ff;
+        }
+        th, td {
+            padding: 7px;
+        }
+    }
+
+    .edit {
+        background: #3e9ad0;
+        color: white;
+        border: 0px;
+        padding: 5px 10px;
+    }
+    .delete{    background: #d03e3e;
+        color: white;
+        border: 0px;
+        padding: 5px 10px;
+    }
+    th,td {
+        
+    border-right: 1px solid white;
+    }
+}
+
+button{
+    float: right;
+    margin: 10px;
+}
